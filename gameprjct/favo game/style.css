@@ -1,0 +1,7 @@
+.imgbig {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 33vh;
+    width: 35vw;
+}
