@@ -1,0 +1,287 @@
+.imgbig {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 33vh;
+    width: 35vw;
+}
+.game{
+    width: 500px;
+    height: 200px;
+    border: 1px solid black;
+    margin: auto;
+}
+#character{
+    width: 20px;
+    height: 50px;
+    background-color: red;
+    position:relative;
+    top: 150px;
+}
+.animate{
+    animation: jump 0.3s linear;
+}
+@keyframes jump{
+    0%{top: 150px;}
+    30%{top: 100px;}
+    70%{top: 100px;}
+    100%{top: 150px;}
+}
+
+#block{
+    background-color: blue;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 130px;
+    left: 500px;
+    animation: block 1s infinite linear;
+}
+@keyframes block{
+    0%{left: 500px}
+    100%{left: -20px}
+}
+p{
+    text-align: center;
+}
+.Navbar{
+    background-color: aqua;
+    height: 50px;
+}
+.Menu {
+    display: none;
+    position: relative;
+}
+    /* Drie standaard menu layouts */
+    /* This also enforces that menu is a ul, and that
+     * layout is modified en ik weet niet precies wat alles doet. Meneer van gils heeft me ermee geholpen
+     */
+    ul.Menu.-horizontal,
+    ul.Menu.-vertical {
+        display: inline-block;
+    }
+    ul.Menu.-floating {
+        display: block;
+        position: absolute;
+    }
+
+    /* Menu en menu-item layout */
+    .Menu,
+    .Menu li,
+    .Menu li > ul {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+    }
+    .Menu li {
+        display: block;
+        position: relative;
+        white-space: nowrap;
+        word-break: keep-all;
+    }
+    .Menu.-horizontal > li {
+
+        float: left;
+    }
+    .Menu li > * {
+        display: block;
+        position: relative;
+    }
+    .Menu li > ul {
+        position: absolute;
+        min-width: 100%;
+        top: 0px;
+        left: 100%;
+    }
+    .Menu.-horizontal.-alignRight li > ul {
+        left: auto;
+        right: 100%;
+    }
+    .Menu.-horizontal.-alignRight > li > ul {
+        right: 0px;
+    }
+    .Menu.-horizontal > li > ul {
+        top: auto;
+        left: auto;
+    }
+
+    /* Menu doel */
+    .Menu li > ul,
+    .Menu.-floating {
+        display: none;
+    }
+    .Menu li > ul.-visible,
+    ul.Menu.-floating.-visible {
+        display: block;
+    }
+
+    /* Menu animation voor multi dropdown */
+    .Menu li > ul,
+    .Menu.-horizontal.-alignRight li > ul,
+    .Menu.-floating {
+        opacity: 1;
+        transform: scale(1) translateY(0px);
+        transform-origin: left top;
+    }
+    .Menu.-alignRight li > ul,
+    .Menu.-floating.-alignRight {
+        transform-origin: right top;
+    }
+    .Menu li > ul.-animating,
+    .Menu.-floating.-animating {
+        opacity: 0 !important;
+        transform: scale(0.96) translateX(-16px);
+    }
+    .Menu li > ul.-animating {
+        z-index: -1 !important;
+    }
+    .Menu.-horizontal > li > ul.-animating {
+        transform: scale(0.96) translateY(-16px);
+    }
+    .Menu.-alignRight li > ul.-animating,
+    .Menu.-floating.-alignRight.-animating {
+        transform: scale(0.96) translateX(16px);
+    }
+    .Menu.-horizontal.-alignRight > li > ul.-animating {
+        transform: scale(0.96) translateY(-16px);
+    }
+
+    /* Menu item icons */
+    .Menu *[data-icon]:before {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        bottom: 0px;
+        margin: auto 0px;
+    }
+    .Menu .Icon,
+    .Menu *[data-icon]:before {
+        line-height: inherit;
+    }
+    .Menu .Icon {
+        padding: 0px;
+    }
+    .Menu *:empty[data-icon] {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+
+    /* Submenu haakjes die doorwijzen naar multi dropdown */
+    .Menu li.-hasSubmenu > a:after {
+        display: block;
+        position: absolute;
+
+        width: 8px;
+        height: 8px;
+        right: 8px;
+        bottom: 0px;
+        top: 0px;
+        margin: auto 0px;
+
+        transform: rotate(45deg);
+        border-width: 1px;
+        border-color: black;
+        border-style: solid solid none none;
+
+        content: "";
+    }
+    .Menu.-horizontal > li.-hasSubmenu > a:after {
+        width: 4px;
+        height: 4px;
+        bottom: 4px;
+        top: auto;
+        left: 0px;
+        right: 0px;
+        margin: 0px auto;
+
+        border-style: none solid solid none;
+    }
+    .Menu li.-hasSubmenu.-noChevron > a:after {
+        display: none;
+    }
+
+    .Menu {
+        line-height: 40px;
+    }
+    .Menu.-horizontal,
+    .Menu li,
+    .Menu li > :first-child {
+        height: 40px;
+    }
+    .Menu *[data-icon]:before,
+    .Menu .Icon {
+        width: 40px;
+        height: 40px;
+    }
+    .Menu *[data-icon] {
+        min-width: 40px;
+        min-height: 40px;
+        padding-left: 40px;
+    }
+
+
+    .Menu {
+        font-family: Arial, Helvetica, Sans;
+        font-size: 16px;
+    }
+
+    .Menu *[data-icon]:before,
+    .Menu .Icon {
+        font-size: 24px;
+    }
+
+    .Menu > li ul .Icon,
+    .Menu.-floating .Icon,
+    .Menu > li ul *[data-icon]:before,
+    .Menu.-floating *[data-icon]:before,
+
+  
+    .Menu,
+    .Menu li.-hasSubmenu > a:after {
+        color: black;
+        border-color: black;
+    }
+    .Menu ul,
+    .Menu.-floating {
+        background: white;
+    }
+
+    .Menu li > * {
+        padding: 0px 12px;
+    }
+    .Menu li li.-hasSubmenu > a:after,
+    .Menu:not(.-horizontal) > li.-hasSubmenu > a:after {
+        right: 12px;
+    }
+    .Menu li li.-hasSubmenu > a,
+    .Menu:not(.-horizontal) > li.-hasSubmenu > a {
+        padding-right: 28px;
+    }
+
+    .Menu.-horizontal li > ul,
+    .Menu.-floating {
+        min-width: 200px;
+    }
+
+    .Menu li > ul,
+    .Menu.-floating {
+        transition: width 0.1s, height 0.1s, transform 0.1s, opacity 0.1s;
+    }
+
+    .Menu li > a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .Menu li > a:first-child {
+        transition: background-color 0.2s;
+    }
+
+    .Menu li:hover > a:first-child,
+    .Menu li.-active > a:first-child {
+        background-color: rgba(0,0,0,0.1);
+    }
+    *{
+        padding: 0;
+        margin: 0;
+    }
